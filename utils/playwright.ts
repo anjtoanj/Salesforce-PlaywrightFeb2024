@@ -1,6 +1,6 @@
 import { Page,Locator,test,expect  } from "@playwright/test";
 
-export abstract class PLayWrightWrapper{
+export abstract class PlayWrightWrapper{
 
     readonly page: Page;
     constructor(page: Page){
@@ -26,8 +26,8 @@ export abstract class PLayWrightWrapper{
         })
     }
 
-    async click(locator: string, name: string){
-        await test.step(`The locator ${name} is clicked`, async()=>{
+    async click(locator: string, name: string, type: string){
+        await test.step(`The locator ${name} ${type} is clicked`, async()=>{
             
             await this.page.locator(locator).click;
 

@@ -1,12 +1,13 @@
 import { test } from "@playwright/test";
-import { LoginPage } from "../pages/login";
 import { log } from "console";
+import { simpleLogin } from "../pages/simpleLogin";
 
-test(`Login to salesforce`, async({page})=>{
+test(`TC001: Verify Salesforce Login with valid credentials`, async({page})=>{
 
-        const loginPage = new LoginPage(page);
-        // await loginPage.navigate();
-        await loginPage.doLogin("Thanmayi321@gmail.com","Playwright2024");
+        const simpleLoginPage = new simpleLogin(page);
+  //      await simpleLoginPage.navigate();
+        await simpleLoginPage.getLogin("Thanmayi321@gmail.com","Playwright2024");
+    //   await loginPage.doLogin("Thanmayi321@gmail.com","Playwright2024");
 
 
 })
