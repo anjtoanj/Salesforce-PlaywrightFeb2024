@@ -6,20 +6,12 @@ export abstract class BaseComponent implements IComponentActions{
 
     static DefaultLocatorActionTimeout = 5000;
     static DefaultLocatorVerificationTimeout =8000;
+
     readonly page: Page;
     constructor(page: Page){
         this.page = page;
     }
 
-    async loadApp(url:string) {
-       try { 
-                await test.step(`The url ${url} loaded`, async()=>{
-                    await this.page.goto(url,{timeout: 6000}) // increased timeout
-                });
-        } catch (error){
-                console.error('Error loading the page:' ,error);
-         } 
-    }
     protected generateLocator(locateUsing: string | Locator): Locator{
         console.log(
             `INFO: Generating locator if string is given otherwise return the locator instance`,
