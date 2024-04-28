@@ -12,6 +12,23 @@ export abstract class BaseComponent implements IComponentActions{
         this.page = page;
     }
 
+    /**
+   * Generates a Playwright Locator based on the provided identifier, which can be either a string selector or an existing Playwright Locator.
+   * If the identifier is a string, it constructs the Locator using the `getLocator` method.
+   *
+   * @param locateUsing - The string selector or Playwright Locator used to generate the Playwright Locator.
+   *
+   * @returns A Playwright Locator based on the provided identifier.
+   *
+   * @example
+   * // Example 1: Generating a locator with a string selector
+   * const selector: string = /* your selector
+   * const generatedLocator1: Locator = elementInteractor.generateLocator(selector);
+   *
+   * // Example 2: Passing an existing Playwright Locator
+   * const existingLocator: Locator = /* your existing Locator
+   * const generatedLocator2: Locator = elementInteractor.generateLocator(existingLocator);
+   */
     protected generateLocator(locateUsing: string | Locator): Locator{
         console.log(
             `INFO: Generating locator if string is given otherwise return the locator instance`,
